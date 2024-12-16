@@ -14,7 +14,7 @@ app.use(cors())
 // Función para hacer la solicitud a Cohere y obtener la recomendación
 async function obtenerRecomendacion(emotion, hobbies, respuestas) {
   const prompt = `
-    Genera una recomendación personalizada basada en la emoción, los hobbies y las respuestas del usuario:
+    Genera una recomendación personalizada basada en la emoción, los hobbies y las respuestas del usuario, (Que la recomendacion no exeda las 295 letras)::
     Emoción: ${emotion}
     Hobbies: ${hobbies.join(', ')}
     Respuestas: ${respuestas.join(' | ')}
@@ -28,7 +28,7 @@ async function obtenerRecomendacion(emotion, hobbies, respuestas) {
       {
         model: 'command-xlarge-nightly',  // Usa el modelo correcto
         prompt: prompt,
-        max_tokens: 150,
+        max_tokens: 300,
         temperature: 0.7,
       },
       {
