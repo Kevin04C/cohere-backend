@@ -52,6 +52,10 @@ async function obtenerRecomendacion(emotion, hobbies, respuestas) {
   }
 }
 
+app.get("/", (req, res) => {
+  res.send({ message: "ok" })
+})
+
 // Endpoint que recibe los datos de la emoción, hobbies y respuestas
 app.post('/generar-recomendacion', async (req, res) => {
   const { emotion, hobbies, respuestas } = req.body;
